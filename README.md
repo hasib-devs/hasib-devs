@@ -1,10 +1,28 @@
-Hi ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)My name is Hasibur Rahman
+Hello, ![](https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif)I’m Hasibur Rahman
 ======================================================================================================================================
 
 Software Engineer
 -----------------
 
 I am a Software Engineer with a passion for building reliable, scalable, and efficient applications. With a solid background in the JavaScript/TypeScript ecosystem, I’ve spent years mastering Node.js, React.js, Vue.js, Express.js, and Nest.js. I’m always exploring ways to innovate and enhance user experience, whether through front-end frameworks or back-end logic.
+
+🌐 Web Technology Expertise
+I’ve been deeply involved in the world of web development for a long time, honing my skills across the entire stack. My work with JavaScript and TypeScript frameworks is complemented by experience in Laravel and Laravel Nova, enabling me to deliver robust, user-focused solutions.
+
+🦀 Experimenting with Rust
+While most of my experience lies within JavaScript and TypeScript, I’m also exploring Rust. Its performance and safety features have sparked my interest, and I enjoy applying Rust’s principles to create highly performant, reliable software.
+
+📊 Database Mastery
+Working with both SQL and NoSQL databases, I’m proficient with popular database solutions and rely on ORMs for streamlined data handling. I approach database design with efficiency and scalability in mind, ensuring my applications can handle real-world demands.
+
+🧰 Development Tools
+Version Control: Extensive experience with Git and GitHub, where I maintain organized, well-documented repositories.
+Deployment & Cloud: Skilled in deploying applications to cloud platforms, primarily AWS and DigitalOcean, with Nginx as my web server of choice.
+Editors: I write code in Neovim and VS Code, focusing on productivity and optimizing my workflow.
+
+🎮 Gaming Enthusiast
+When I'm not coding, I enjoy playing video games on my PS5. It’s a great way to unwind and keeps my mind sharp!
+
 
 * 🌍  I'm based in Bangladesh
 * ✉️  You can contact me at [info@hasib.dev](mailto:info@hasib.dev)
