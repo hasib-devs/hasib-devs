@@ -12,11 +12,7 @@ const BlogLayout: FC<Props> = ({ children }) => {
     const { isDarkMode } = useGlobalContext();
     return (
         <>
-            <div
-                className={cn("flex flex-col min-h-dvh", {
-                    dark: isDarkMode,
-                })}
-            >
+            <div className={cn("flex flex-col min-h-dvh")}>
                 <Header />
                 <main className="mt-[71px]">{children}</main>
                 <Footer />

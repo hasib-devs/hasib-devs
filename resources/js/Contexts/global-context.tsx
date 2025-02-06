@@ -1,5 +1,5 @@
 import useLocalstorage from "@/hooks/useLocalstorage";
-import { createContext, FC, useState } from "react";
+import { createContext, FC, useEffect, useState } from "react";
 
 type ContextType = {
     isDarkMode: boolean;
@@ -19,6 +19,14 @@ export const GlobalCtxProvider: FC<ProviderProps> = ({ children, value }) => {
         setIsDarkMode(!isDarkMode);
         localStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
     }
+
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    }, [isDarkMode]);
 
     const contextValue: ContextType = {
         isDarkMode,

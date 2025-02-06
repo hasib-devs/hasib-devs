@@ -1,9 +1,9 @@
+import MenuAlt1 from "@/icons/MenuAlt1";
 import { cn } from "@/lib/utils";
-import React, { FC, useState } from "react";
-import SidebarDrawer from "../features/portfolio/sections/SidebarDrawer";
+import React, { FC } from "react";
 import { usePortfolio } from "../features/portfolio/hooks/contexts";
 import Footer from "../features/portfolio/sections/Footer";
-import { useGlobalContext } from "@/hooks/contexts";
+import SidebarDrawer from "../features/portfolio/sections/SidebarDrawer";
 
 type Props = {
     children: React.ReactNode;
@@ -11,14 +11,9 @@ type Props = {
 
 const PortfolioLayout: FC<Props> = ({ children }) => {
     const { isSidebarOpen, setIsSidebarOpen } = usePortfolio();
-    const { isDarkMode } = useGlobalContext();
     return (
         <>
-            <div
-                className={cn("flex h-screen overflow-hidden", {
-                    dark: isDarkMode,
-                })}
-            >
+            <div className={cn("flex h-screen overflow-hidden")}>
                 {/* Sidebar */}
                 <SidebarDrawer />
 
@@ -28,7 +23,7 @@ const PortfolioLayout: FC<Props> = ({ children }) => {
                             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                             className="p-2 ml-2 bg-gray-100 bg-opacity-10 rounded-full"
                         >
-                            {/* <menu-icon></menu-icon> */}
+                            <MenuAlt1 />
                         </button>
                         <h1 className="text-center text-2xl flex-grow ">
                             Hasibur Rahman

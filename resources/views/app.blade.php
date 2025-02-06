@@ -20,7 +20,7 @@
     @inertiaHead
 </head>
 
-<body class="font-sans antialiased bg-[#f8f8f8] text-gray-700">
+<body class="font-sans antialiased ">
     @inertia
 
 </body>
