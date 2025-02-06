@@ -15,11 +15,11 @@ const Landing = (props: Props) => {
             <div className="container">
                 {/* Hero section */}
                 <div className="py-20 flex text-center gap-4 flex-col justify-center items-center">
-                    <h2 className="text-6xl font-bold">
+                    <h2 className="text-6xl font-bold dark:text-gray-200">
                         Turning <span className="text-secondary">Ideas</span>{" "}
                         into <br /> Interactive Realities
                     </h2>
-                    <p className="text-lg">
+                    <p className="text-lg dark:text-gray-300">
                         <span className="text-[1.2rem]">
                             From Vision to Code
                         </span>{" "}

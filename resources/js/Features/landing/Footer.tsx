@@ -1,20 +1,22 @@
+import HasibDevLogo from "@/icons/HasibDevLogo";
 import { Link } from "@inertiajs/react";
 import { GoDot } from "react-icons/go";
 
 const Footer = () => {
     return (
-        <footer className="bg-white mt-auto">
+        <footer className="bg-white dark:bg-navy mt-auto">
             <div className="container py-8">
                 <div className="grid grid-cols-2 gap-2">
                     <div className="">
                         <Link href="/">
-                            <img
+                            {/* <img
                                 src="/images/hasib-dev.svg"
                                 alt="Hasib.dev"
                                 width={150}
-                            />
+                            /> */}
+                            <HasibDevLogo />
                         </Link>
-                        <p className="mt-1.5">
+                        <p className="mt-1.5 dark:text-gray-300">
                             © Copyright 2024{" "}
                             <a
                                 className="text-secondary hover:text-secondary/90"
@@ -28,39 +30,39 @@ const Footer = () => {
                     <div className="flex items-end justify-end">
                         <div className="flex items-center gap-1 ">
                             <Link
-                                className="text-secondary hover:text-secondary/90"
+                                className="text-secondary hover:text-secondary/90 hover:underline"
                                 href="/"
                             >
                                 Home
                             </Link>
                             <GoDot size={7} />
                             <Link
-                                className="text-secondary hover:text-secondary/90"
+                                className="text-secondary hover:text-secondary/90 hover:underline"
                                 href="/portfolio"
                             >
                                 Portfolio
                             </Link>
                             <GoDot size={7} />
                             <Link
-                                className="text-secondary hover:text-secondary/90"
+                                className="text-secondary hover:text-secondary/90 hover:underline"
                                 href="/changelog"
                             >
                                 Changelog
                             </Link>
                             <GoDot
-                                className="text-secondary hover:text-secondary/90"
+                                className="text-secondary hover:text-secondary/90 hover:underline"
                                 size={7}
                             />
                             <a
                                 target="_blank"
-                                className="text-secondary hover:text-secondary/90"
+                                className="text-secondary hover:text-secondary/90 hover:underline"
                                 href="https://github.com/hasib-devs"
                             >
                                 Github
                             </a>
                             <GoDot size={7} />
                             <a
-                                className="text-secondary hover:text-secondary/90"
+                                className="text-secondary hover:text-secondary/90 hover:underline"
                                 href="mailto:info@hasib.dev"
                             >
                                 Leave Feedback

@@ -13,7 +13,7 @@ type ProviderProps = {
 export const GlobalContext = createContext<ContextType | undefined>(undefined);
 
 export const GlobalCtxProvider: FC<ProviderProps> = ({ children, value }) => {
-    const [isDarkMode, setIsDarkMode] = useLocalstorage("is-dark", false);
+    const [isDarkMode, setIsDarkMode] = useLocalstorage("is-dark", true);
 
     function toggleDarkMode() {
         setIsDarkMode(!isDarkMode);
