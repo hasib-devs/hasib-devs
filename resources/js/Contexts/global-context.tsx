@@ -1,3 +1,4 @@
+import useLocalstorage from "@/hooks/useLocalstorage";
 import { createContext, FC, useState } from "react";
 
 type ContextType = {
@@ -12,7 +13,7 @@ type ProviderProps = {
 export const GlobalContext = createContext<ContextType | undefined>(undefined);
 
 export const GlobalCtxProvider: FC<ProviderProps> = ({ children, value }) => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useLocalstorage("is-dark", false);
 
     function toggleDarkMode() {
         setIsDarkMode(!isDarkMode);
