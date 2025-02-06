@@ -1,4 +1,4 @@
-import { cn } from "@/Lib/Utils";
+import { cn } from "@/lib/utils";
 import { Link } from "@inertiajs/react";
 import { FC } from "react";
 import {
@@ -13,8 +13,8 @@ import {
     FaEnvelope,
     FaAdjust,
 } from "react-icons/fa";
-import { usePortfolio } from "../Hooks/contexts";
-import { useGlobalContext } from "@/Hooks/contexts";
+import { usePortfolio } from "../hooks/contexts";
+import { useGlobalContext } from "@/hooks/contexts";
 
 type Props = {};
 

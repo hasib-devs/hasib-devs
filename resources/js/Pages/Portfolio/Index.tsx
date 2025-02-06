@@ -1,7 +1,7 @@
-import { PortfolioProvider } from "@/Features/Portfolio/Contexts/portfolio-context";
-import PortfolioLayout from "@/Layouts/PortfolioLayout";
-import AboutSection from "@/Features/Portfolio/Sections/AboutSection";
-import OverviewSection from "@/Features/Portfolio/Sections/OverviewSection";
+import { PortfolioProvider } from "@/features/portfolio/contexts/portfolio-context";
+import PortfolioLayout from "@/layouts/PortfolioLayout";
+import AboutSection from "@/features/portfolio/sections/AboutSection";
+import OverviewSection from "@/features/portfolio/sections/OverviewSection";
 import { Head } from "@inertiajs/react";
 import { ReactNode } from "react";
 

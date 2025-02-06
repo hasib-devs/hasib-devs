@@ -1,6 +1,6 @@
-import { PortfolioProvider } from "@/Features/Portfolio/Contexts/portfolio-context";
-import PortfolioLayout from "@/Layouts/PortfolioLayout";
-import { cn, Toast } from "@/Lib/Utils";
+import { PortfolioProvider } from "@/features/portfolio/contexts/portfolio-context";
+import PortfolioLayout from "@/layouts/PortfolioLayout";
+import { cn, Toast } from "@/lib/utils";
 import { Head, useForm } from "@inertiajs/react";
 import { FormEventHandler, ReactNode } from "react";
 import { FaLinkedinIn } from "react-icons/fa";

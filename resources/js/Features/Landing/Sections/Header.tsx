@@ -1,4 +1,4 @@
-import { Button } from "@/Components/Shared/Button";
+import { Button } from "@/components/shared/Button";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -6,7 +6,7 @@ import {
     DropdownMenuItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/Components/Shared/DropdownMenu";
+} from "@/components/shared/DropdownMenu";
 import { Link } from "@inertiajs/react";
 import { BiMessageAltDetail } from "react-icons/bi";
 import {

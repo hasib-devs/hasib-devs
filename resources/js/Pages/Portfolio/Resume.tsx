@@ -1,5 +1,5 @@
-import { PortfolioProvider } from "@/Features/Portfolio/Contexts/portfolio-context";
-import PortfolioLayout from "@/Layouts/PortfolioLayout";
+import { PortfolioProvider } from "@/features/portfolio/contexts/portfolio-context";
+import PortfolioLayout from "@/layouts/PortfolioLayout";
 import { Head } from "@inertiajs/react";
 import { ReactNode } from "react";
 import {

@@ -1,4 +1,4 @@
-import { Provider } from "@/Contexts/global-context";
+import { Provider } from "@/contexts/global-context";
 import { createContext, FC, useState } from "react";
 
 type PortfolioContextType = {

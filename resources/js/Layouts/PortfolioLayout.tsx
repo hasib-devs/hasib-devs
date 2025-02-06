@@ -1,9 +1,9 @@
-import { cn } from "@/Lib/Utils";
+import { cn } from "@/lib/utils";
 import React, { FC, useState } from "react";
-import SidebarDrawer from "../Features/Portfolio/Sections/SidebarDrawer";
-import { usePortfolio } from "../Features/Portfolio/Hooks/contexts";
-import Footer from "../Features/Portfolio/Sections/Footer";
-import { useGlobalContext } from "@/Hooks/contexts";
+import SidebarDrawer from "../features/portfolio/sections/SidebarDrawer";
+import { usePortfolio } from "../features/portfolio/hooks/contexts";
+import Footer from "../features/portfolio/sections/Footer";
+import { useGlobalContext } from "@/hooks/contexts";
 
 type Props = {
     children: React.ReactNode;

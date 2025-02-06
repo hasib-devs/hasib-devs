@@ -1,7 +1,7 @@
-import FlutterIcon from "@/Icons/FlutterIcon";
-import GulpIcon from "@/Icons/GulpIcon";
-import ScssIcon from "@/Icons/ScssIcon";
-import WebpackIcon from "@/Icons/WebpackIcon";
+import FlutterIcon from "@/icons/FlutterIcon";
+import GulpIcon from "@/icons/GulpIcon";
+import ScssIcon from "@/icons/ScssIcon";
+import WebpackIcon from "@/icons/WebpackIcon";
 import React from "react";
 import {
     FaCss3,

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PortfolioContext } from "../Contexts/portfolio-context";
+import { PortfolioContext } from "../contexts/portfolio-context";
 
 export const usePortfolio = () => {
     const context = useContext(PortfolioContext);

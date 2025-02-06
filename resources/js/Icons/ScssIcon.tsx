@@ -1,4 +1,4 @@
-import { cn } from "@/Lib/Utils";
+import { cn } from "@/lib/utils";
 import { FC, SVGProps } from "react";
 
 interface Props extends SVGProps<SVGSVGElement> {}

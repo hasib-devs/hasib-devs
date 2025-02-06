@@ -1,8 +1,8 @@
-import { useGlobalContext } from "@/Hooks/contexts";
-import { cn } from "@/Lib/Utils";
+import { useGlobalContext } from "@/hooks/contexts";
+import { cn } from "@/lib/utils";
 import React, { FC } from "react";
-import Header from "../Features/Landing/Sections/Header";
-import Footer from "../Features/Landing/Sections/Footer";
+import Header from "../features/landing/sections/Header";
+import Footer from "../features/landing/sections/Footer";
 
 type Props = {
     children: React.ReactNode;

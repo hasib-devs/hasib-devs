@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class BlogController extends Controller
 {
@@ -11,7 +12,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('pages.blog.index');
+        return Inertia::render('Blog/Index');
     }
 
     /**
@@ -35,7 +36,9 @@ class BlogController extends Controller
      */
     public function show(string $slug)
     {
-        return view('pages.blog.show');
+        return Inertia::render('Blog/Show', [
+            'slug' => $slug,
+        ]);
     }
 
     /**

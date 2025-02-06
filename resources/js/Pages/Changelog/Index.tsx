@@ -1,6 +1,6 @@
-import { Button } from "@/Components/Shared/Button";
-import { Provider } from "@/Contexts/global-context";
-import DefaultLayout from "@/Layouts/LandingLayout";
+import { Button } from "@/components/shared/Button";
+import { Provider } from "@/contexts/global-context";
+import DefaultLayout from "@/layouts/LandingLayout";
 import { Head, Link } from "@inertiajs/react";
 import React from "react";
 import { FaGithub } from "react-icons/fa";
