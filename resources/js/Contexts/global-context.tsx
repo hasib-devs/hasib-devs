@@ -9,9 +9,9 @@ type ProviderProps = {
     value?: ContextType;
 };
 
-export const Context = createContext<ContextType | undefined>(undefined);
+export const GlobalContext = createContext<ContextType | undefined>(undefined);
 
-export const Provider: FC<ProviderProps> = ({ children, value }) => {
+export const GlobalCtxProvider: FC<ProviderProps> = ({ children, value }) => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     function toggleDarkMode() {
@@ -25,5 +25,9 @@ export const Provider: FC<ProviderProps> = ({ children, value }) => {
         ...value,
     };
 
-    return <Context.Provider value={contextValue}>{children}</Context.Provider>;
+    return (
+        <GlobalContext.Provider value={contextValue}>
+            {children}
+        </GlobalContext.Provider>
+    );
 };

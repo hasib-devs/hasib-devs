@@ -6,6 +6,7 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { GlobalCtxProvider } from "./contexts/global-context";
 
 const appName = import.meta.env.VITE_APP_NAME || "Hasib.dev";
 
@@ -23,10 +24,10 @@ createInertiaApp({
         }
 
         createRoot(el).render(
-            <>
+            <GlobalCtxProvider>
                 <ToastContainer />
                 <App {...props} />
-            </>
+            </GlobalCtxProvider>
         );
     },
     progress: {

@@ -1,5 +1,4 @@
 import { Button } from "@/components/shared/Button";
-import { Provider } from "@/contexts/global-context";
 import LandingLayout from "@/layouts/LandingLayout";
 import { Head, Link } from "@inertiajs/react";
 import React from "react";
@@ -67,9 +66,7 @@ const Landing = (props: Props) => {
 };
 
 Landing.layout = (page: React.ReactNode) => (
-    <Provider>
-        <LandingLayout>{page}</LandingLayout>
-    </Provider>
+    <LandingLayout>{page}</LandingLayout>
 );
 
 export default Landing;

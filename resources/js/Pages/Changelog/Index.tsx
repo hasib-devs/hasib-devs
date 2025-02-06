@@ -1,5 +1,4 @@
 import { Button } from "@/components/shared/Button";
-import { Provider } from "@/contexts/global-context";
 import DefaultLayout from "@/layouts/LandingLayout";
 import { Head, Link } from "@inertiajs/react";
 import React from "react";
@@ -150,9 +149,7 @@ const Changelog = () => {
 };
 
 Changelog.layout = (page: React.ReactNode) => (
-    <Provider>
-        <DefaultLayout>{page}</DefaultLayout>
-    </Provider>
+    <DefaultLayout>{page}</DefaultLayout>
 );
 
 export default Changelog;

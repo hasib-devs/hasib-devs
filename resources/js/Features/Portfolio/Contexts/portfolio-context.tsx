@@ -1,4 +1,3 @@
-import { Provider } from "@/contexts/global-context";
 import { createContext, FC, useState } from "react";
 
 type PortfolioContextType = {
@@ -27,10 +26,8 @@ export const PortfolioProvider: FC<PortfolioProviderProps> = ({
     };
 
     return (
-        <Provider>
-            <PortfolioContext.Provider value={contextValue}>
-                {children}
-            </PortfolioContext.Provider>
-        </Provider>
+        <PortfolioContext.Provider value={contextValue}>
+            {children}
+        </PortfolioContext.Provider>
     );
 };
