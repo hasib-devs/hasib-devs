@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
-use Illuminate\Http\Request;
+use App\Mail\Contact as ContactMail;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
-use App\Mail\Contact as ContactMail;
 
 class PortfolioController extends Controller
 {
@@ -15,16 +14,15 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        return Inertia::render("Portfolio/Index");
+        return Inertia::render('portfolio/index');
     }
 
     /**
      * Show the resume page.
      */
-
     public function resume()
     {
-        return Inertia::render("Portfolio/Resume");
+        return Inertia::render('portfolio/resume');
     }
 
     /**
@@ -32,7 +30,7 @@ class PortfolioController extends Controller
      */
     public function blog()
     {
-        return Inertia::render("Portfolio/Blog");
+        return Inertia::render('portfolio/blog');
     }
 
     /**
@@ -40,7 +38,7 @@ class PortfolioController extends Controller
      */
     public function contact()
     {
-        return Inertia::render("Portfolio/Contact");
+        return Inertia::render('portfolio/contact');
     }
 
     /**
@@ -56,18 +54,17 @@ class PortfolioController extends Controller
 
         return redirect()
             ->back()
-            ->with("message", "Thank you for your message. We will get back to you soon!");
+            ->with('message', 'Thank you for your message. We will get back to you soon!');
     }
-
 
     /**
      * Download the resume from public folder.
      */
     public function downloadResume()
     {
-        $fileName = "Hasibur-Rahman.pdf";
-        $file = public_path("files/" . $fileName);
-        $headers = ["Content-Type: application/pdf"];
+        $fileName = 'Hasibur-Rahman.pdf';
+        $file = public_path('files/'.$fileName);
+        $headers = ['Content-Type: application/pdf'];
 
         return response()->download($file, $fileName, $headers);
     }

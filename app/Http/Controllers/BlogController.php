@@ -12,7 +12,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Blog/Index');
+        return Inertia::render('blog/index');
     }
 
     /**
@@ -36,7 +36,7 @@ class BlogController extends Controller
      */
     public function show(string $slug)
     {
-        return Inertia::render('Blog/Show', [
+        return Inertia::render('blog/show', [
             'slug' => $slug,
         ]);
     }
