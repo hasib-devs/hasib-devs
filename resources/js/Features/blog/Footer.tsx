@@ -1,3 +1,4 @@
+import HasibDevLogo from "@/icons/HasibDevLogo";
 import { Link } from "@inertiajs/react";
 import { GoDot } from "react-icons/go";
 
@@ -8,11 +9,13 @@ const Footer = () => {
                 <div className="grid grid-cols-2 gap-2">
                     <div className="">
                         <Link href="/">
-                            <img
+                            {/* <img
                                 src="/images/hasib-dev.svg"
                                 alt="Hasib.dev"
                                 width={150}
-                            />
+                            /> */}
+
+                            <HasibDevLogo />
                         </Link>
                         <p className="mt-1.5">
                             © Copyright 2024{" "}

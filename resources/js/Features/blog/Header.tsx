@@ -7,6 +7,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/shared/DropdownMenu";
+import HasibDevLogo from "@/icons/HasibDevLogo";
 import { Link } from "@inertiajs/react";
 import { BiMessageAltDetail } from "react-icons/bi";
 import {
@@ -18,16 +19,12 @@ import {
 
 const Header = () => {
     return (
-        <header className="bg-white fixed top-0 left-0 w-full">
+        <header className="bg-white dark:bg-navy fixed top-0 left-0 w-full">
             <div className="container items-center py-4">
                 <div className="flex">
-                    <div className="flex-1">
+                    <div className="flex-1 flex items-center">
                         <Link href="/">
-                            <img
-                                src="/images/hasib-dev.svg"
-                                alt="Hasib.dev"
-                                width={150}
-                            />
+                            <HasibDevLogo />
                         </Link>
                     </div>
                     <div className="flex-1 flex gap-1.5 items-center justify-end">

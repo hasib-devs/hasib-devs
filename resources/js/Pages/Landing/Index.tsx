@@ -40,7 +40,7 @@ const Landing = (props: Props) => {
                                 variant="gray"
                                 className="uppercase"
                             >
-                                Visit Github Repos
+                                Visit Github Repos 🚀
                             </Button>
                         </a>
                         <Link href="/portfolio">
@@ -49,7 +49,7 @@ const Landing = (props: Props) => {
                                 // variant="secondary"
                                 className="uppercase"
                             >
-                                View Portfolio
+                                View Portfoli🐼
                             </Button>
                         </Link>
                     </div>
