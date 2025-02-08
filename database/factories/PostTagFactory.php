@@ -17,7 +17,7 @@ class PostTagFactory extends Factory
      */
     public function definition(): array
     {
-        $name = $this->faker->unique()->word();
+        $name = $this->faker->unique()->sentence(3);
         $slug = Str::slug($name);
 
         return [

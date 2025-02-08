@@ -17,7 +17,7 @@ class PostSeeder extends Seeder
             ->take(rand(1, 5))
             ->pluck('id');
 
-        Post::factory(5)
+        Post::factory(5000)
             ->create()
             ->each(function ($post) use ($tags) {
                 $post->tags()->attach($tags);
