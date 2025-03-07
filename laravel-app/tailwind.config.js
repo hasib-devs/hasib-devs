@@ -1,5 +1,6 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import colors from 'tailwind-colors';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -19,13 +20,15 @@ export default {
             },
         },
         colors: {
+            ...colors,
             navy: '#1e2a3a',
             black: '#111821',
             primary: '#059669',
             'primary-dark': '#065F46',
             secondary: 'rgb(19 154 225)',
             'secondary-dark': 'rgb(19 154 225)',
-            'gray-10': '#fafafa'
+            'gray-10': '#fafafa',
+            white: '#ffffff',
           },
           screens: {
            // Define breakpoints based on your layout needs
