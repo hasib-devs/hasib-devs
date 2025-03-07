@@ -17,9 +17,9 @@
                     <h1 class="text-center text-2xl flex-grow ">Hasibur Rahman</h1>
                 </div>
 
-                <!-- <NuxtLayout>
+                <NuxtLayout>
                     <NuxtPage />
-                </NuxtLayout> -->
+                </NuxtLayout>
 
                 <!-- Footer -->
                 <footer class="p-6">
