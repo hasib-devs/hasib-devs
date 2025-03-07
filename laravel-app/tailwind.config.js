@@ -28,7 +28,6 @@ export default {
             secondary: 'rgb(19 154 225)',
             'secondary-dark': 'rgb(19 154 225)',
             'gray-10': '#fafafa',
-            white: '#ffffff',
           },
           screens: {
            // Define breakpoints based on your layout needs
