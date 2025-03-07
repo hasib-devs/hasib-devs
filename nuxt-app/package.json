@@ -10,9 +10,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nuxt": "^3.15.4",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/tailwindcss": "6.13.1",
+    "nuxt": "^3.16.0",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-html2pdf": "^1.8.0",
+    "vue-router": "^4.5.0",
+    "vue-slick-carousel": "^1.0.6",
+    "vueisotope": "^3.1.2"
   },
-  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
+  "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3",
+  "devDependencies": {
+    "sass": "^1.85.1"
+  }
 }
