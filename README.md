@@ -27,7 +27,7 @@ Working with both **SQL and NoSQL databases**, I’m proficient with popular dat
 When I'm not coding, I enjoy playing video games on my **PS5**. It’s a great way to unwind and keeps my mind sharp!
 
 - 🌍  I'm based in Bangladesh
-- ✉️  You can contact me at [info@hasib.dev](mailto:info@hasib.dev)
+- ✉️  You can contact me at [hello@hasib.dev](mailto:hello@hasib.dev)
 - 🚀  I'm currently working on [Dokan Cloud](http://dokan.co/cloud)
 - 🧠  I'm learning Rust programming
 - 🤝  I'm open to collaborating on Open source

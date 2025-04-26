@@ -1,0 +1,15 @@
+.contact-icon {
+    width: 0.85rem;
+    height: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-info>span {
+        margin-bottom: 0.25rem;
+    }
+}

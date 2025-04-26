@@ -1,86 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hasibur Rahman - Software Engineer</title>
-    <meta name="description" content="Portfolio of Hasibur Rahman, a Software Engineer specializing in full-stack development">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description"
+        content="Portfolio of Hasibur Rahman, a Software Engineer specializing in full-stack development">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="./src/css/style.css">
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./src/css/tw.css">
+    <link rel="stylesheet" href="./src//css/portfolio.css">
     <!-- Main JS -->
-    <script src="./src/main.ts" defer></script>
-
-    <style type="text/css">
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .bg-gradient {
-            background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
-        }
-
-        .skill-bar {
-          width: 0%;
-          transition: width 1.5s ease-in-out;
-        }
-
-        @keyframes skillBarFill {
-          from { width: 0%; }
-          to { width: var(--target-width); }
-        }
-
-        .skill-bar.animate {
-          animation: skillBarFill 1.5s forwards ease-out;
-        }
-        
-        /* Scroll Progress Bar */
-        .progress-container {
-          position: fixed;
-          top: 0;
-          z-index: 100;
-          width: 100%;
-          height: 4px;
-          background: transparent;
-        }
-        
-        .progress-bar {
-          height: 4px;
-          background: linear-gradient(90deg, #0ea5e9, #6366f1);
-          width: 0%;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          transition: width 0.05s ease;
-        }
-    </style>
+    <script src="./src/js/main.ts" defer></script>
 </head>
+
 <body class="font-sans text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
-    <!-- Scroll Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar" id="scrollProgressBar"></div>
-    </div>
-    
+
+
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-colors duration-200 mt-1">
+    <nav class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-colors duration-200 top-0 left-0">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-blue-400">Hasib<span class="text-blue-600">.</span></a>
+            <a href="#home" class="text-2xl font-bold text-blue-500">Hasib<span class="text-blue-600">.</span></a>
             <div class="hidden md:flex space-x-10">
-                <a href="#home" class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">Home</a>
-                <a href="#about" class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">About</a>
-                <a href="#skills" class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">Skills</a>
-                <a href="#projects" class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#contact" class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+                <a href="#home"
+                    class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">Home</a>
+                <a href="#about"
+                    class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                <a href="#skills"
+                    class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#projects"
+                    class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#contact"
+                    class="text-gray-600 font-semibold dark:text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
             </div>
-            <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors mr-4 md:mr-0">
+            <button id="theme-toggle"
+                class="text-gray-600 cursor-pointer  dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors mr-4 md:mr-0">
                 <i class="fas fa-sun text-xl dark:hidden"></i>
                 <i class="fas fa-moon text-xl hidden dark:block"></i>
             </button>
-            <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+            <button class="md:hidden cursor-pointer text-gray-600 focus:outline-none" id="menu-toggle">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
@@ -88,33 +50,47 @@
         <div class="md:hidden hidden bg-white dark:bg-gray-800 w-full" id="mobile-menu">
             <div class="container mx-auto px-6 py-3 flex flex-col space-y-4">
                 <a href="#home" class="text-gray-600 dark:text-gray-300 hover:text-blue-400 transition-colors">Home</a>
-                <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-blue-400 transition-colors">About</a>
-                <a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-blue-400 transition-colors">Skills</a>
-                <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+                <a href="#about"
+                    class="text-gray-600 dark:text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                <a href="#skills"
+                    class="text-gray-600 dark:text-gray-300 hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#projects"
+                    class="text-gray-600 dark:text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#contact"
+                    class="text-gray-600 dark:text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
             </div>
+        </div>
+
+        <!-- Scroll Progress Bar -->
+        <div class="progress-container bg-white w-full h-[4px] dark:bg-gray-800">
+            <div class="progress-bar h-[4px]" id="scrollProgressBar"></div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 md:pt-0 min-h-screen flex items-center bg-white dark:bg-gray-900 transition-colors duration-200">
+    <section id="home"
+        class="pt-24 md:pt-0 min-h-screen flex items-center bg-white dark:bg-gray-900 transition-colors duration-200">
         <div class="container mx-auto px-6 py-16 md:py-0 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">
                     Hi, I'm <span class="text-blue-400">Hasibur Rahman</span>
                 </h1>
-                <h2 class="text-2xl md:text-3xl text-gray-600 mb-6">Software Engineer</h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0">
+                <h2 class="text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-6">Software Engineer</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
                     Passionate about building modern web applications with cutting-edge technologies.
-                    Specializing in full-stack development with expertise in React, Node.js, and more.
+                    Specializing in full-stack development with expertise in React.js, Node.js, and more.
                 </p>
                 <div class="flex flex-wrap flex-col sm:flex-row justify-center md:justify-start gap-3">
-                    <a href="#contact" class="bg-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
+                    <a href="#contact"
+                        class="bg-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
                         Contact Me
                     </a>
-                    <a href="#projects" class="bg-white dark:bg-gray-700 dark:text-white text-blue-400 border-2 border-blue-400 font-semibold py-3 px-8 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-all transform hover:-translate-y-1">
+                    <a href="#projects"
+                        class="bg-white dark:bg-gray-700 dark:text-white text-blue-400 border-2 border-blue-400 font-semibold py-3 px-8 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-all transform hover:-translate-y-1">
                         View Projects
                     </a>
-                    <a href="/resume.pdf" download class="hidden md:flex items-center bg-white dark:bg-gray-700 dark:text-white text-blue-400 border-2 border-blue-400 font-semibold py-3 px-8 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-all transform hover:-translate-y-1">
+                    <a href="/resume.pdf" download
+                        class="hidden md:flex items-center bg-white dark:bg-gray-700 dark:text-white text-blue-400 border-2 border-blue-400 font-semibold py-3 px-8 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 transition-all transform hover:-translate-y-1">
                         <i class="fas fa-file-pdf mr-2"></i>
                         Download Resume
                     </a>
@@ -122,8 +98,11 @@
             </div>
             <div class="md:w-1/2 flex justify-center">
                 <div class="relative">
-                    <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient rounded-full absolute -top-6 -left-6 animate-float opacity-20"></div>
-                    <div class="w-64 h-64 md:w-80 md:h-80 bg-white border-4 border-blue-400 rounded-full overflow-hidden relative z-10">
+                    <div
+                        class="w-64 h-64 md:w-80 md:h-80 bg-gradient rounded-full absolute -top-6 -left-6 animate-float opacity-20">
+                    </div>
+                    <div
+                        class="w-64 h-64 md:w-80 md:h-80 bg-white border-4 border-blue-400 rounded-full overflow-hidden relative z-10">
                         <img src="/img-1.jpg" alt="Hasibur Rahman" class="w-full h-full object-cover scale-150">
                     </div>
                 </div>
@@ -140,49 +119,59 @@
             </div>
             <div class="max-w-4xl mx-auto">
                 <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                    Starting out at the age of 17, I never stopped learning new programming skills and languages. Early on, I started creating websites out of curiosity and for fun. I became proficient in web design using HTML, CSS, and jQuery (jQuery was a hero!).
+                    Starting out at the age of 17, I never stopped learning new programming skills and languages. Early
+                    on, I started creating websites out of curiosity and for fun. I became proficient in web design
+                    using HTML, CSS, and jQuery.
                 </p>
-    
+
                 <div class="flex justify-center mb-8">
-                    <a href="/resume.pdf" download class="flex items-center bg-gradient text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
+                    <a href="/resume.pdf" download
+                        class="flex items-center bg-gradient text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
                         <i class="fas fa-file-pdf mr-2"></i>
                         Download My Resume
                     </a>
                 </div>
-    
+
                 <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                    Beyond front-end development, I explored backend technologies and other non-web-only technologies. This passion led to my decision to work as a freelance web developer. The success and enjoyment I find in this profession keep my passion burning alive.
+                    Beyond front-end development, I explored backend technologies and other non-web-only technologies.
+                    This passion led to my decision to work as a freelance web developer. The success and enjoyment I
+                    find in this profession keep my passion burning alive.
                 </p>
                 <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                    Starting with frontend development using modern frameworks like ReactJS, I've also become increasingly proficient in backend development with Node.js and Laravel frameworks. I love both worlds nowadays!
+                    Starting with frontend development using modern frameworks like ReactJS, I've also become
+                    increasingly proficient in backend development with Node.js and Laravel frameworks. I love both
+                    worlds nowadays!
                 </p>
                 <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-                    Not only am I skilled in development, but I'm also adept at deploying web applications on Linux servers. I have a strong understanding of CI/CD pipelines with GitHub Actions and GitLab Runner.
+                    Not only am I skilled in development, but I'm also adept at deploying web applications on Linux
+                    servers. I have a strong understanding of CI/CD pipelines with GitHub Actions and GitLab Runner.
                 </p>
                 <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Besides development and deployment, I've explored robotics as a hobby. When I feel like taking a break from coding, I enjoy working with my Arduino learning kit. I primarily work on SAAS microservice-based projects and contribute to open-source projects.
+                    Besides development and deployment, I've explored robotics as a hobby. When I feel like taking a
+                    break from coding, I enjoy working with my Arduino learning kit. I primarily work on SAAS
+                    microservice-based projects and contribute to open-source projects.
                 </p>
             </div>
             <div class="mt-12 flex flex-wrap justify-center gap-6">
                 <div class="bg-white dark:bg-gray-600 p-6 rounded-lg shadow-md flex items-center w-full md:w-72">
                     <i class="fas fa-code text-4xl text-blue-400 mr-4"></i>
-                    <div class="flex items-center">
-                        <h3 class="font-bold text-lg">Full-Stack Developer</h3>
-                        <p class="text-gray-600">Frontend & Backend</p>
+                    <div class="flex flex-col">
+                        <h3 class="font-bold text-lg">Full-Stack</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Frontend & Backend</p>
                     </div>
                 </div>
                 <div class="bg-white dark:bg-gray-600 p-6 rounded-lg shadow-md flex items-center w-full md:w-72">
                     <i class="fas fa-server text-4xl text-blue-400 mr-4"></i>
-                    <div class="flex items-center">
-                        <h3 class="font-bold text-lg">DevOps Engineer</h3>
-                        <p class="text-gray-600">Deployment & CI/CD</p>
+                    <div class="flex flex-col">
+                        <h3 class="font-bold text-lg">DevOps</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Deployment & CI/CD</p>
                     </div>
                 </div>
                 <div class="bg-white dark:bg-gray-600 p-6 rounded-lg shadow-md flex items-center w-full md:w-72">
                     <i class="fas fa-robot text-4xl text-blue-400 mr-4"></i>
-                    <div class="flex items-center">
+                    <div class="flex flex-col">
                         <h3 class="font-bold text-lg">Robotics Enthusiast</h3>
-                        <p class="text-gray-600">Arduino & Hardware</p>
+                        <p class="text-gray-600 dark:text-gray-400">Arduino & Hardware</p>
                     </div>
                 </div>
             </div>
@@ -228,7 +217,7 @@
                 <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                     <div class="flex items-center mb-4">
                         <i class="fab fa-react text-2xl text-blue-400 mr-3"></i>
-                        <h3 class="font-bold">React</h3>
+                        <h3 class="font-bold">React.js</h3>
                     </div>
                     <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
                         <div class="skill-bar bg-blue-400 h-2 rounded-full" data-width="85"></div>
@@ -320,64 +309,106 @@
                 <div class="w-24 h-1 bg-blue-400 mx-auto"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 0 -->
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-shapes text-6xl text-gray-400"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Dokan UI</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Dokan UI is a collection of Re-usable React UI components for Dokan Cloud and similar
+                            projects.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">TypeScript</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">React.js</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Tailwind
+                                CSS</span>
+                        </div>
+                        <a href="https://github.com/getdokan/dokan-ui" target="_blank"
+                            class="text-blue-400 hover:underline flex items-center">
+                            <span>View on GitHub</span>
+                            <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
                 <!-- Project 1 -->
-                <div class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-500 flex items-center justify-center">
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-200 flex items-center justify-center">
                         <i class="fas fa-code text-6xl text-gray-400"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Hono Routing Controller</h3>
-                        <p class="text-gray-600 mb-4">
-                            A NPM package that provides routing controller functionality for Hono framework.
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            A NPM package that provides decorator based routing controller functionality for Hono
+                            framework.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">TypeScript</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Node.js</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">TypeScript</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Hono.js</span>
                             <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">NPM</span>
                         </div>
-                        <a href="https://github.com/hasib-devs/hono-routing-controller" target="_blank" class="text-blue-400 hover:underline flex items-center">
+                        <a href="https://github.com/hasib-devs/hono-routing-controller" target="_blank"
+                            class="text-blue-400 hover:underline flex items-center">
                             <span>View on GitHub</span>
                             <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                         </a>
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-500 flex items-center justify-center">
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-200 flex items-center justify-center">
                         <i class="fas fa-clipboard text-6xl text-gray-400"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">CopyClip</h3>
-                        <p class="text-gray-600 mb-4">
+                        <h3 class="text-xl font-bold mb-2">Copyclip</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
                             A utility application for managing clipboard content efficiently.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">JavaScript</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Electron</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">React</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Rust/Tauri</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Typescript</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">React.js</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Tailwind
+                                CSS</span>
                         </div>
-                        <a href="https://github.com/hasib-devs/copyclip" target="_blank" class="text-blue-400 hover:underline flex items-center">
+                        <a href="https://github.com/hasib-devs/copyclip" target="_blank"
+                            class="text-blue-400 hover:underline flex items-center">
                             <span>View on GitHub</span>
                             <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                         </a>
                     </div>
                 </div>
                 <!-- Project 3 -->
-                <div class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-gray-200 dark:bg-gray-500 flex items-center justify-center">
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gray-200 dark:bg-gray-200 flex items-center justify-center">
                         <i class="fas fa-rocket text-6xl text-gray-400"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">LemmeGo</h3>
-                        <p class="text-gray-600 mb-4">
-                            Contributor to the LemmeGo project, a platform for developers.
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                            Contributor to the LemmeGo project, a full-stack framework written in GO programming
+                            language.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">JavaScript</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Typescript</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Node.js</span>
+                            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">GO</span>
+                            <span
+                                class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">Hugo</span>
                         </div>
-                        <a href="https://github.com/hasib-devs/lemmego.github.io" target="_blank" class="text-blue-400 hover:underline flex items-center">
+                        <a href="https://github.com/lemmego" target="_blank"
+                            class="text-blue-400 hover:underline flex items-center">
                             <span>View on GitHub</span>
                             <i class="fas fa-external-link-alt ml-1 text-xs"></i>
                         </a>
@@ -393,9 +424,10 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Testimonials</h2>
                 <div class="w-24 h-1 bg-blue-400 mx-auto"></div>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">What clients and colleagues say about working with me.</p>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">What clients and colleagues say about working with me.
+                </p>
             </div>
-            
+
             <!-- Testimonials Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Testimonial 1 -->
@@ -406,11 +438,12 @@
                         </div>
                     </div>
                     <p class="text-gray-700 mb-6 pt-4 italic">
-                        "Hasibur is an exceptional developer who consistently delivers high-quality code. His technical expertise and problem-solving skills have been invaluable to our team."
+                        "Hasibur is an exceptional developer who consistently delivers high-quality code. His technical
+                        expertise and problem-solving skills have been invaluable to our team."
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
-                            <img src="https://via.placeholder.com/48x48" alt="John Smith" class="w-full h-full object-cover">
+                            <img src="https://placehold.co/48x48" alt="John Smith" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">John Smith</h4>
@@ -418,7 +451,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 2 -->
                 <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-lg shadow-md relative">
                     <div class="absolute -top-5 left-8">
@@ -427,11 +460,13 @@
                         </div>
                     </div>
                     <p class="text-gray-700 mb-6 pt-4 italic">
-                        "Working with Hasibur was a pleasure. He understood our requirements perfectly and delivered a solution that exceeded our expectations. His attention to detail is remarkable."
+                        "Working with Hasibur was a pleasure. He understood our requirements perfectly and delivered a
+                        solution that exceeded our expectations. His attention to detail is remarkable."
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
-                            <img src="https://via.placeholder.com/48x48" alt="Sarah Johnson" class="w-full h-full object-cover">
+                            <img src="https://placehold.co/48x48" alt="Sarah Johnson"
+                                class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
@@ -439,7 +474,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 3 -->
                 <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-lg shadow-md relative">
                     <div class="absolute -top-5 left-8">
@@ -448,11 +483,12 @@
                         </div>
                     </div>
                     <p class="text-gray-700 mb-6 pt-4 italic">
-                        "Hasibur's technical skills are top-notch. He's a dedicated professional who consistently delivers clean, efficient code and innovative solutions to complex problems."
+                        "Hasibur's technical skills are top-notch. He's a dedicated professional who consistently
+                        delivers clean, efficient code and innovative solutions to complex problems."
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
-                            <img src="https://via.placeholder.com/48x48" alt="Michael Chen" class="w-full h-full object-cover">
+                            <img src="https://placehold.co/48x48" alt="Michael Chen" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">Michael Chen</h4>
@@ -460,7 +496,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 4 -->
                 <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-lg shadow-md relative">
                     <div class="absolute -top-5 left-8">
@@ -469,11 +505,13 @@
                         </div>
                     </div>
                     <p class="text-gray-700 mb-6 pt-4 italic">
-                        "I've had the pleasure of collaborating with Hasibur on several projects. His expertise in full-stack development and ability to quickly adapt to new technologies is impressive."
+                        "I've had the pleasure of collaborating with Hasibur on several projects. His expertise in
+                        full-stack development and ability to quickly adapt to new technologies is impressive."
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
-                            <img src="https://via.placeholder.com/48x48" alt="Emily Rodriguez" class="w-full h-full object-cover">
+                            <img src="https://placehold.co/48x48" alt="Emily Rodriguez"
+                                class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">Emily Rodriguez</h4>
@@ -481,7 +519,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 5 -->
                 <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-lg shadow-md relative">
                     <div class="absolute -top-5 left-8">
@@ -490,11 +528,12 @@
                         </div>
                     </div>
                     <p class="text-gray-700 mb-6 pt-4 italic">
-                        "Hasibur is a talented developer who brings both technical expertise and creative thinking to every project. His work on our platform significantly improved performance and user experience."
+                        "Hasibur is a talented developer who brings both technical expertise and creative thinking to
+                        every project. His work on our platform significantly improved performance and user experience."
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
-                            <img src="https://via.placeholder.com/48x48" alt="David Kim" class="w-full h-full object-cover">
+                            <img src="https://placehold.co/48x48" alt="David Kim" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">David Kim</h4>
@@ -502,7 +541,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Testimonial 6 -->
                 <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-lg shadow-md relative">
                     <div class="absolute -top-5 left-8">
@@ -511,11 +550,13 @@
                         </div>
                     </div>
                     <p class="text-gray-700 mb-6 pt-4 italic">
-                        "We hired Hasibur for a complex project with tight deadlines. Not only did he deliver on time, but the quality of his work was exceptional. His communication throughout the process was clear and professional."
+                        "We hired Hasibur for a complex project with tight deadlines. Not only did he deliver on time,
+                        but the quality of his work was exceptional. His communication throughout the process was clear
+                        and professional."
                     </p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
-                            <img src="https://via.placeholder.com/48x48" alt="Sophia Patel" class="w-full h-full object-cover">
+                            <img src="https://placehold.co/48x48" alt="Sophia Patel" class="w-full h-full object-cover">
                         </div>
                         <div>
                             <h4 class="font-bold text-gray-800">Sophia Patel</h4>
@@ -524,7 +565,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Call to Action -->
             <div class="text-center mt-12">
                 <a href="#contact" class="inline-flex items-center text-blue-400 hover:underline">
@@ -547,7 +588,7 @@
                 <div class="relative">
                     <!-- Line -->
                     <div class="absolute left-0 md:left-1/2 h-full w-0.5 bg-gray-200 transform -translate-x-1/2"></div>
-                    
+
                     <!-- Current Job -->
                     <div class="relative mb-12">
                         <div class="flex flex-col md:flex-row items-center">
@@ -562,24 +603,28 @@
                             <div class="flex-1 md:pl-8">
                                 <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-sm">
                                     <p class="text-gray-70 dark:text-gray-100">
-                                        Working on SAAS microservice-based projects, implementing modern web applications using React, Node.js, and other cutting-edge technologies. Leading development teams and establishing best practices.
+                                        Working on SAAS microservice-based projects, implementing modern web
+                                        applications using React.js, Node.js, and other cutting-edge technologies.
+                                        Leading development teams and establishing best practices.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Previous Job -->
                     <div class="relative mb-12">
                         <div class="flex flex-col md:flex-row items-center">
                             <div class="flex-1 md:text-right md:pr-8 mb-4 md:mb-0 md:order-1">
                                 <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-sm">
                                     <p class="text-gray-700 dark:text-gray-100">
-                                        Developed full-stack web applications using React, and Node.js. Implemented CI/CD pipelines and managed deployments on Linux servers.
+                                        Developed full-stack web applications using Typescript, React.js, and Node.js.
+                                        Implemented CI/CD pipelines and managed deployments on Linux servers.
                                     </p>
                                 </div>
                             </div>
-                            <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center z-10 md:order-2">
+                            <div
+                                class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center z-10 md:order-2">
                                 <i class="fas fa-briefcase text-white"></i>
                             </div>
                             <div class="flex-1 md:pl-8 md:order-3">
@@ -589,7 +634,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Earlier Job -->
                     <div class="relative">
                         <div class="flex flex-col md:flex-row items-center">
@@ -604,7 +649,8 @@
                             <div class="flex-1 md:pl-8">
                                 <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow-sm">
                                     <p class="text-gray-700 dark:text-gray-100">
-                                        Started creating websites using HTML, CSS, and jQuery. Developed a strong foundation in web development and design principles.
+                                        Started creating websites using HTML, CSS, and jQuery. Developed a strong
+                                        foundation in web development and design principles.
                                     </p>
                                 </div>
                             </div>
@@ -630,7 +676,8 @@
                             <i class="fas fa-envelope text-blue-400 mr-4"></i>
                             <div>
                                 <p class="text-gray-300">Email</p>
-                                <p class="text-white">hasib@example.com</p>
+                                <a href="mailto:hello@hasib.dev"
+                                    class="text-white hover:text-blue-400">hello@hasib.dev</a>
                             </div>
                         </div>
                         <div class="flex items-center mb-6">
@@ -641,13 +688,16 @@
                             </div>
                         </div>
                         <div class="flex space-x-4 mt-8">
-                            <a href="https://github.com/hasib-devs" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition-colors">
+                            <a href="https://github.com/hasib-devs"
+                                class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition-colors">
                                 <i class="fab fa-github text-white"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition-colors">
+                            <a href="https://www.linkedin.com/in/hasibur/"
+                                class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition-colors">
                                 <i class="fab fa-linkedin-in text-white"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition-colors">
+                            <a href="https://x.com/HasibWebdev"
+                                class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-blue-400 transition-colors">
                                 <i class="fab fa-twitter text-white"></i>
                             </a>
                         </div>
@@ -658,22 +708,27 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
                                     <label for="name" class="block text-gray-700 mb-2">Name</label>
-                                    <input placeholder="Your Name" type="text" id="name" class="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-300">
+                                    <input placeholder="Your Name" type="text" id="name"
+                                        class="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-300">
                                 </div>
                                 <div>
                                     <label for="email" class="block text-gray-700 mb-2">Email</label>
-                                    <input placeholder="Your Email" type="email" id="email" class="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-300">
+                                    <input placeholder="Your Email" type="email" id="email"
+                                        class="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-300">
                                 </div>
                             </div>
                             <div class="mb-6">
                                 <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                                <input placeholder="Subject" type="text" id="subject" class="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-300">
+                                <input placeholder="Subject" type="text" id="subject"
+                                    class="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-300">
                             </div>
                             <div class="mb-6">
                                 <label for="message" class="block text-gray-700 mb-2">Message</label>
-                                <textarea placeholder="Message" id="message" rows="5" class="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-300"></textarea>
+                                <textarea placeholder="Message" id="message" rows="5"
+                                    class="w-full px-4 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-300"></textarea>
                             </div>
-                            <button type="submit" class="bg-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
+                            <button type="submit"
+                                class="bg-gradient text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:opacity-90 transition-all transform hover:-translate-y-1">
                                 Send Message
                             </button>
                         </form>
@@ -688,7 +743,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <a href="#" class="text-2xl font-bold">Hasib<span class="text-blue-400">.</span></a>
+                    <a href="#" class="text-2xl font-bold">Hasib<span class="text-blue-600">.</span></a>
                     <p class="text-gray-400 mt-2">Software Engineer</p>
                 </div>
                 <div class="flex flex-wrap justify-center gap-4">
@@ -707,133 +762,19 @@
     </footer>
 
     <!-- Back to top button -->
-    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-400 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all">
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 bg-blue-400 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- Floating Resume Button -->
     <div id="floating-resume" class="fixed bottom-6 left-6 opacity-0 invisible transition-all z-40">
-        <a href="/resume.pdf" download class="flex items-center bg-gradient text-white py-2 px-4 rounded-full shadow-lg hover:opacity-90 transition-all">
+        <a href="/resume.pdf" download
+            class="flex items-center bg-gradient text-white py-2 px-4 rounded-full shadow-lg hover:opacity-90 transition-all">
             <i class="fas fa-file-pdf mr-2"></i>
             <span class="hidden sm:inline">Resume</span>
         </a>
     </div>
-
-    <!-- JavaScript -->
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('opacity-0', 'invisible');
-                backToTopButton.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopButton.classList.remove('opacity-100', 'visible');
-                backToTopButton.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
-        });
-
-        // Theme toggle functionality
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        themeToggleBtn.addEventListener('click', function() {
-            // Toggle dark class on html element
-            document.documentElement.classList.toggle('dark');
-            
-            // Update localStorage
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
-        });
-
-        // Skill bar animation on scroll
-        const skillsSection = document.getElementById('skills');
-        const skillBars = document.querySelectorAll('.skill-bar');
-        let animated = false;
-
-        // Create an Intersection Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !animated) {
-                    // Animate all skill bars when skills section is visible
-                    skillBars.forEach(bar => {
-                        const targetWidth = bar.getAttribute('data-width') + '%';
-                        bar.style.setProperty('--target-width', targetWidth);
-                        bar.classList.add('animate');
-                    });
-                    animated = true;
-                    
-                    // Optional: Unobserve after animation is triggered
-                    observer.unobserve(skillsSection);
-                }
-            });
-        }, { threshold: 0.2 }); // Trigger when 20% of the section is visible
-
-        // Start observing the skills section
-        observer.observe(skillsSection);
-
-        // Floating resume button
-        const floatingResumeBtn = document.getElementById('floating-resume');
-
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 600) {
-                floatingResumeBtn.classList.remove('opacity-0', 'invisible');
-                floatingResumeBtn.classList.add('opacity-100', 'visible');
-            } else {
-                floatingResumeBtn.classList.remove('opacity-100', 'visible');
-                floatingResumeBtn.classList.add('opacity-0', 'invisible');
-            }
-        });
-        
-        // Scroll Progress Bar
-        window.onscroll = function() {
-            updateScrollProgress();
-        };
-
-        function updateScrollProgress() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("scrollProgressBar").style.width = scrolled + "%";
-        }
-    </script>
 </body>
+
 </html>

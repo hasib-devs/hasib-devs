@@ -1,0 +1,47 @@
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, var(--color-blue-500) 0%, var(--color-indigo-700) 100%);
+}
+
+.skill-bar {
+    width: 0%;
+    transition: width 1.5s ease-in-out;
+}
+
+@keyframes skillBarFill {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: var(--target-width);
+    }
+}
+
+.skill-bar.animate {
+    animation: skillBarFill 1.5s forwards ease-out;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--color-blue-500), var(--color-indigo-700));
+    width: 0%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: width 0.05s ease;
+}
