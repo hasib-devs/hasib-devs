@@ -1,3 +1,6 @@
+@import "./loading.css";
+@import "./tw.css";
+
 .animate-float {
     animation: float 6s ease-in-out infinite;
 }
