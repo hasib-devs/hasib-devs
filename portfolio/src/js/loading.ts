@@ -1,4 +1,4 @@
-import { $, $$ } from './helpers';
+import { $ } from './helpers';
 
 document.addEventListener('DOMContentLoaded', function () {
     const loadingOverlay = $<HTMLDivElement>('#loadingOverlay');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     totalAssets = images.length;
 
     // If there are no assets or very few, show minimal loading time
-    if (totalAssets < 20) {
+    if (totalAssets < 10) {
         simulateLoading();
         return;
     }
@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to update progress when an asset is loaded
     function assetLoaded() {
         loadedAssets++;
+
+        console.log({ totalAssets, loadedAssets });
         const progress = Math.min((loadedAssets / totalAssets) * 100, 100);
         updateProgress(progress);
 
@@ -57,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update the progress bar and text
     function updateProgress(progress: number) {
+        // console.log({ progress });
         const roundedProgress = Math.round(progress >= 100 ? 100 : progress);
         progressBar.style.width = roundedProgress + '%';
         loadingText.textContent = `Loading... ${roundedProgress}%`;
@@ -64,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Hide the loading overlay
     function hideLoadingOverlay() {
+        updateProgress(100);
         loadingOverlay?.classList.add('hidden');
         // Remove overlay from DOM after animation completes
         setTimeout(() => {
@@ -74,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Ensure loading screen is hidden even if something goes wrong
-    // window.addEventListener('load', function () {
-    //     setTimeout(hideLoadingOverlay, 1000);
-    // });
+    window.addEventListener('load', function () {
+        setTimeout(hideLoadingOverlay, 1000);
+    });
 });
