@@ -53,10 +53,10 @@ const OverviewSection = () => {
                         </div>
 
                         <h4 className="text-lg my-3 font-semibold">
-                            React &amp; Vue
+                            React &amp; Angular
                         </h4>
                         <p>
-                            To be honest, I like Vue.js over React because of
+                            To be honest, I like Angular.js over React because of
                             the way it separates the logic in a component and is
                             also very easy to manage global state. However,
                             React was the first front-end framework I learned.

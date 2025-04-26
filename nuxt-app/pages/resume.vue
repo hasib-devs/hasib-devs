@@ -60,7 +60,7 @@
             <p class="md:w-4/5 pl-4 mt-4 md:mt-0">
               I am a professional full-stack web developer since 2018. I can
               design and develop any type of website, web-based application
-              using front-end Vue JS with Node JS or Laravel Backend.
+              using front-end Angular JS with Node JS or Laravel Backend.
               <br />
               Starting out at the age of 17 I never stopped learning new
               programming skills and languages. Early I started creating
@@ -95,7 +95,7 @@
                 I have been working with Jara It for more than six months. This
                 is my first-time working experience remotely. They are very
                 helpful and cool guys. Primarily they use Laravel for their
-                backend and Vue JS and React JS for the front-end development.
+                backend and Angular JS and React JS for the front-end development.
               </p>
               <p>Some of the project I'have done with this team.</p>
               <ul class="list-disc pl-8 mt-4">
@@ -124,7 +124,7 @@
                 I have been working with 999 It Solutions for more than two
                 year. And I learned lots of things from them. Some of them are,
                 how to work professionally, team management, and better coding
-                structure. Primarily they uses Laravel for their backend and Vue
+                structure. Primarily they uses Laravel for their backend and Angular
                 JS for the front-end development.
               </p>
               <p>Some of the project I'have done with this team.</p>
@@ -206,7 +206,7 @@
               <h4 class="text-lg font-bold mt-5 mb-2">Technical</h4>
               <ul>
                 <li>JavaScript</li>
-                <li>React/Vue</li>
+                <li>React/Angular</li>
                 <li>Node.js</li>
                 <li>PHP/Laravel</li>
                 <li>MySQL/PostgreSQL</li>

@@ -31,7 +31,7 @@ const AboutSection = () => {
                     <p className="mb-4">
                         Starting web development on the frontend using modern
                         frameworks like (<strong>ReactJS</strong> and{" "}
-                        <strong>VueJS</strong>) I also became more and more of a
+                        <strong>Angular</strong>) I also became more and more of a
                         Backend developer with (Node JS and Laravel) frameworks.
                         I love both worlds nowadays!
                     </p>

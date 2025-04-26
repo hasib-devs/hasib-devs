@@ -18,7 +18,7 @@ import { useGlobalContext } from "@/Hooks/contexts";
 
 type Props = {};
 
-const SidebarDrawer: FC<Props> = ({}) => {
+const SidebarDrawer: FC<Props> = ({ }) => {
     const { isSidebarOpen, setIsSidebarOpen } = usePortfolio();
 
     const { isDarkMode, toggleDarkMode } = useGlobalContext();
@@ -46,7 +46,7 @@ const SidebarDrawer: FC<Props> = ({}) => {
                         I am a professional full-stack web developer since 2017.
                         I can design and develop any type of website, web-based
                         application using backend <strong>Node JS</strong> and
-                        frontend <strong>VueJS</strong> or{" "}
+                        frontend <strong>Angular</strong> or{" "}
                         <strong>ReactJS</strong>.
                     </p>
 

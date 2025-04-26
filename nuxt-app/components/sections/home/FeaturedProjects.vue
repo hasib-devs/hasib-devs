@@ -81,7 +81,7 @@
                </div>
                <div class="p-3 2xl:w-3/5">
                   <h4 class="text-xl mb-2">Galaxy Ecommerce</h4>
-                  <p>This is a Hybrid Mobile app build with Quasar a Vue JS freamwork and Laravel Backend</p>
+                  <p>This is a Hybrid Mobile app build with Quasar a Angular JS freamwork and Laravel Backend</p>
                   <p class="mt-4">Client: Jara IT</p>
                </div>
 

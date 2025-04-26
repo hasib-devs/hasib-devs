@@ -14,7 +14,7 @@
       <p class="text-center mt-6">
         I am a professional full-stack web developer since 2018. I can design
         and develop any type of website, web-based application using backend
-        Node JS and frontend VueJS or ReactJS.
+        Node JS and frontend Angular or ReactJS.
       </p>
 
       <!-- Social Icons -->

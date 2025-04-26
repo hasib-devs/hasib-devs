@@ -116,7 +116,7 @@ const Resume = () => {
                                     I am a professional full-stack web developer
                                     since 2017. I can design and develop any
                                     type of website, web-based application using
-                                    front-end Vue JS with Node JS or Laravel
+                                    front-end Angular JS with Node JS or Laravel
                                     Backend.
                                     <br />
                                     Starting out at the age of 17 I never
@@ -166,7 +166,7 @@ const Resume = () => {
                                         first-time working experience remotely.
                                         They are very helpful and cool guys.
                                         Primarily they use Laravel for their
-                                        backend and Vue JS and React JS for the
+                                        backend and Angular JS and React JS for the
                                         front-end development.
                                     </p>
                                     <p>
@@ -227,7 +227,7 @@ const Resume = () => {
                                         of them are, how to work professionally,
                                         team management, and better coding
                                         structure. Primarily they uses Laravel
-                                        for their backend and Vue JS for the
+                                        for their backend and Angular JS for the
                                         front-end development.
                                     </p>
                                     <p>
@@ -345,7 +345,7 @@ const Resume = () => {
                                     </h4>
                                     <ul>
                                         <li>JavaScript</li>
-                                        <li>React/Vue</li>
+                                        <li>React/Angular</li>
                                         <li>Node.js</li>
                                         <li>PHP/Laravel</li>
                                         <li>MySQL/PostgreSQL</li>

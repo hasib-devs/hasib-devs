@@ -15,13 +15,13 @@
                         language. And also native-like mobile apps. Not only that, with the help of Node.js we can even
                         use JS into IoT devices like Raspberry pi or Arduino. </p>
                 </div>
-                <!-- React, Vue -->
+                <!-- React, Angular -->
                 <div class="">
                     <react-icon class="text-3xl c-react"></react-icon>
                     <vue-icon class="text-3xl c-vue ml-1"></vue-icon>
 
-                    <h4 class="text-lg my-3 font-semibold">React &amp; Vue</h4>
-                    <p>To be honest, I like Vue.js over React because of the way it separates the logic in a component
+                    <h4 class="text-lg my-3 font-semibold">React &amp; Angular</h4>
+                    <p>To be honest, I like Angular.js over React because of the way it separates the logic in a component
                         and is also very easy to manage global state. However, React was the first front-end framework I
                         learned. But, I love both of those including jQuery.</p>
                 </div>
