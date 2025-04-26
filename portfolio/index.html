@@ -8,18 +8,38 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="description"
         content="Portfolio of Hasibur Rahman, a Software Engineer specializing in full-stack development">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Check for saved theme preference or use system preference -->
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <!-- Loading CSS -->
+    <link rel="stylesheet" href="./src/css/loading.css">
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="./src/css/tw.css">
+
     <link rel="stylesheet" href="./src//css/portfolio.css">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main JS -->
-    <script src="./src/js/main.ts" defer></script>
+    <script src="./src/js/main.ts" defer type="module"></script>
 </head>
 
 <body class="font-sans text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
-
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-progress-container">
+            <div class="loading-progress-bar" id="progressBar"></div>
+        </div>
+        <div class="loading-text" id="loadingText">Loading... 0%</div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-colors duration-200 top-0 left-0">
