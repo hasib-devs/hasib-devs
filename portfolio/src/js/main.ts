@@ -1,3 +1,4 @@
+import { Carousel } from "./carousel";
 import { $, $$ } from "./helpers";
 import "./loading";
 
@@ -126,3 +127,12 @@ function updateScrollProgress() {
 
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slidesContainer = document.getElementById('testimonial-slides');
+
+  if (slidesContainer) {
+    new Carousel(slidesContainer);
+  }
+
+});
