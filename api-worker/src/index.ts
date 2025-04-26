@@ -1,12 +1,6 @@
 import { Hono } from 'hono';
 
-type Bindings = {
-  SENDER_EMAIL: string;
-  FORWARD_TO_EMAIL: string;
-};
-
-const app = new Hono<{ Bindings: Bindings; }>();
-
+const app = new Hono();
 // Enable CORS
 app.use('/api/*', async (c, next) => {
   c.res.headers.set('Access-Control-Allow-Origin', '*');
@@ -30,27 +24,78 @@ app.post('/api/contact', async (c) => {
     return c.json({ error: 'Missing required fields' }, 422);
   }
 
-  // Construct email
-  const emailContent = {
-    personalizations: [{
-      to: [{ email: c.env.FORWARD_TO_EMAIL }],
-      reply_to: { email, name }
-    }],
-    from: {
-      email: c.env.SENDER_EMAIL,
-      name: "Portfolio Contact Form"
-    },
-    subject: `New message from ${name}`,
-    content: [{
-      type: 'text/plain',
-      value: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`
-    }]
-  };
+  // Validate email format
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return c.json({ error: 'Invalid email format' }, 422);
+  }
 
-  return c.json({
-    data: emailContent
-  });
+  // Validate message length
+  if (message.length > 1000) {
+    return c.json({ error: 'Message too long' }, 422);
+  }
+
+  // POST Slack webhook here
+  try {
+    // Post to Slack
+    const slackResponse = await fetch("https://hooks.slack.com/services/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", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text: `New contact form submission:\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`,
+        // For richer formatting use blocks:
+        blocks: [
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: `📬 *New Contact Form Submission*`
+            }
+          },
+          {
+            type: "divider"
+          },
+          {
+            type: "section",
+            fields: [
+              {
+                type: "mrkdwn",
+                text: `*Name:*\n${name}`
+              },
+              {
+                type: "mrkdwn",
+                text: `*Email:*\n${email}`
+              }
+            ]
+          },
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: `*Message:*\n${message}`
+            }
+          }
+        ]
+      }),
+    });
+
+    if (!slackResponse.ok) {
+      throw new Error('Failed to send notification to Slack');
+    }
+
+    return c.json({
+      message: "Contact form submited successfully"
+    });
+
+  } catch (error) {
+    return c.json({
+      message: "Failed to process your request"
+    }, 500);
+  }
 
 });
 
-export default app;
+export default {
+  fetch: app.fetch
+};

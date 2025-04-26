@@ -3,13 +3,16 @@
   "name": "api-worker",
   "main": "src/index.ts",
   "compatibility_date": "2025-04-26",
-  // "compatibility_flags": [
-  //   "nodejs_compat"
-  // ],
-  "vars": {
-    "SENDER_EMAIL": "noreply@hasib.dev",
-    "FORWARD_TO_EMAIL": "hello@hasib.dev"
-  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "limits": {
+    "cpu_ms": 500,
+  }
+  // "vars": {
+  //   "SENDER_EMAIL": "noreply@hasib.dev",
+  //   "FORWARD_TO_EMAIL": "hello@hasib.dev"
+  // },
   // "kv_namespaces": [
   //   {
   //     "binding": "MY_KV_NAMESPACE",
