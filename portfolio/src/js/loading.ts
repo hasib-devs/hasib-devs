@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     totalAssets = images.length;
 
+    // If there are no assets or very few, show minimal loading time
+    if (totalAssets < 20) {
+        simulateLoading();
+        return;
+    }
+
     // Track loading of images
     images.forEach(img => {
         if (img.complete) {
@@ -35,17 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // If there are no assets or very few, show minimal loading time
-    if (totalAssets < 20) {
-        simulateLoading();
-        return;
-    }
-
     // Simulate loading progress for sites with few assets
     function simulateLoading() {
         let progress = 0;
         const interval = setInterval(() => {
-            progress += 20;
+            progress += Math.random() * 50;
             updateProgress(progress);
 
             if (progress >= 100) {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update the progress bar and text
     function updateProgress(progress: number) {
-        const roundedProgress = Math.round(progress);
+        const roundedProgress = Math.round(progress >= 100 ? 100 : progress);
         progressBar.style.width = roundedProgress + '%';
         loadingText.textContent = `Loading... ${roundedProgress}%`;
     }
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Ensure loading screen is hidden even if something goes wrong
-    window.addEventListener('load', function () {
-        setTimeout(hideLoadingOverlay, 2000);
-    });
+    // window.addEventListener('load', function () {
+    //     setTimeout(hideLoadingOverlay, 1000);
+    // });
 });
