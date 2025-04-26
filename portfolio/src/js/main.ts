@@ -1,6 +1,7 @@
 import { Carousel } from "./carousel";
 import { $, $$ } from "./helpers";
 import "./loading";
+import "./contact-form";
 
 // Mobile menu toggle
 $('#menu-toggle')?.addEventListener('click', function () {
