@@ -129,10 +129,10 @@ function updateScrollProgress() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  updateScrollProgress();
   const slidesContainer = document.getElementById('testimonial-slides');
 
   if (slidesContainer) {
     new Carousel(slidesContainer);
   }
-
 });
