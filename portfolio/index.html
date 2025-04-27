@@ -72,7 +72,7 @@
 
 <body class="font-sans text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
     <!-- Loading Overlay -->
-    <div class="loading-overlay bg-gray-50 dark:bg-gray-900" id="loadingOverlay">
+    <div class="loading-overlay fixed z-[9999] bg-gray-50 dark:bg-gray-900" id="loadingOverlay">
         <div class="loading-spinner"></div>
         <div class="loading-progress-container">
             <div class="loading-progress-bar" id="progressBar"></div>
@@ -785,9 +785,44 @@
                             </a>
                         </div>
                     </div>
-                    <div class="md:w-2/3 p-8">
+                    <div class="md:w-2/3 p-8 relative">
+
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Me a Message</h3>
                         <form id="contact_form">
+                            <!-- Loading Overlay -->
+                            <div id="loadingOverlay"
+                                class="loading-overlay cursor-progress hidden absolute z-10 bg-white/90">
+                                <div class="loading-spinner"></div>
+                                <p class="text-gray-600">Sending...</p>
+                            </div>
+
+                            <!-- Success Message (Hidden by default) -->
+                            <div id="successOverlay"
+                                class="absolute hidden cursor-pointer top-0 left-0 w-full h-full flex-col justify-center items-center p-8 text-center bg-green-50 rounded-lg">
+                                <div
+                                    class="inline-flex items-center justify-center w-16 h-16 mb-4 bg-green-100 rounded-full">
+                                    <i class="fa-solid fa-check text-green-600 text-3xl"></i>
+                                </div>
+                                <h3 class="mb-2 text-2xl font-semibold text-gray-900">Message Sent!</h3>
+                                <p class="text-gray-600">Thanks for reaching out. I'll get back to you within 24 hours.
+                                </p>
+                            </div>
+
+                            <!-- Error Message -->
+                            <div id="failedOverlay"
+                                class="absolute hidden top-0 left-0 w-full h-full flex-col p-4 justify-center items-center bg-teal-500 text-center text-white">
+                                <h3 class="mb-3 text-2xl font-semibold ">High Five for Reaching Out! ✋</h3>
+                                <p class="mb-6">
+                                    Our inbox is currently helping others.
+                                    <br>
+                                    Please try again in a moment
+                                    <br>
+                                    <br>
+                                    <a href="mailto:hasib.webdev@gmail.com" class="text-blue-600 underline">Contact us
+                                        directly</a>
+                                </p>
+                            </div>
+
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
                                     <label for="name" class="block text-gray-700 mb-2">Name</label>
