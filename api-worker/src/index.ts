@@ -49,39 +49,38 @@ app.post('/api/contact', async (c) => {
       },
       body: JSON.stringify({
         text: `New contact form submission:\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`,
-        // For richer formatting use blocks:
-        // blocks: [
-        //   {
-        //     type: "section",
-        //     text: {
-        //       type: "mrkdwn",
-        //       text: `📬 *New Contact Form Submission*`
-        //     }
-        //   },
-        //   {
-        //     type: "divider"
-        //   },
-        //   {
-        //     type: "section",
-        //     fields: [
-        //       {
-        //         type: "mrkdwn",
-        //         text: `*Name:*\n${name}`
-        //       },
-        //       {
-        //         type: "mrkdwn",
-        //         text: `*Email:*\n${email}`
-        //       }
-        //     ]
-        //   },
-        //   {
-        //     type: "section",
-        //     text: {
-        //       type: "mrkdwn",
-        //       text: `*Message:*\n${message}`
-        //     }
-        //   }
-        // ]
+        blocks: [
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: `📬 *New Contact Form Submission*`
+            }
+          },
+          {
+            type: "divider"
+          },
+          {
+            type: "section",
+            fields: [
+              {
+                type: "mrkdwn",
+                text: `*Name:*\n${name}`
+              },
+              {
+                type: "mrkdwn",
+                text: `*Email:*\n${email}`
+              }
+            ]
+          },
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: `*Message:*\n${message}`
+            }
+          }
+        ]
       }),
     });
 
