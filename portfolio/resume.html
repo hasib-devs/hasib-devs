@@ -47,6 +47,20 @@
     }
   </script>
 
+    <style>
+        @media print {
+            .shadow {
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+            }
+
+            .bg-gray-100 {
+                background-color: white;
+            }
+        }
+    </style>
+
     <link rel="stylesheet" href="src/css/resume.css">
 </head>
 
@@ -128,7 +142,7 @@
             </div>
 
             <!-- Freelance -->
-            <!-- <div class="mb-4">
+            <div class="mb-4">
                 <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-1">
                     <h3 class="font-bold text-sm md:text-base">Freelance</h3> <span
                         class="text-xs md:text-sm text-gray-600">Before January 2023</span>
@@ -140,15 +154,10 @@
                         <span class="font-semibold">Node.js</span>, <span class="font-semibold">Laravel</span>, and
                         <span class="font-semibold">MySQL</span> for various client projects.
                     </li>
-                    <li class="mb-1">Managed <span class="font-semibold">end-to-end development</span> — gathering
-                        requirements, designing architecture, implementing features, and deploying to production.
-                    </li>
-                    <li class="mb-1">Set up and maintained <span class="font-semibold">Linux servers</span>
-                        Ubuntu for hosting applications, with attention to <span class="font-semibold">security</span>
-                        and <span class="font-semibold">performance
-                            optimization</span>.</li>
+                    <li class="mb-1">Set up and maintained <span class="font-semibold">Ubuntu servers</span>
+                        for hosting applications.
                 </ul>
-            </div> -->
+            </div>
         </div>
 
         <!-- Projects -->
@@ -165,24 +174,24 @@
                     <li class="mb-1">Built a <span class="font-semibold">clipboard history manager</span>
                         using <span class="font-semibold">Rust (Tauri)</span> for backend and <span
                             class="font-semibold">ReactJS</span> for frontend UI.</li>
-                    <li class="mb-1">Implemented real-time <span class="font-semibold">clipboard listeners</span> to
+                    <!-- <li class="mb-1">Implemented real-time <span class="font-semibold">clipboard listeners</span> to
                         capture and store <span class="font-semibold">text and image</span> entries with smooth
-                        background updates.</li>
+                        background updates.</li> -->
                     <!-- <li class="mb-1">Designed and developed an efficient <span class="font-semibold">CRUD
                             architecture</span> for managing clipboard entries, including features like <span
                             class="font-semibold">pinning</span>, <span class="font-semibold">auto-expiry</span>, and
                         <span class="font-semibold">search</span>.
                     </li> -->
-                    <li class="mb-1">Used <span class="font-semibold">SQLite</span> as local database with <span
-                            class="font-semibold">Tauri SQL plugin</span> for reliable interactions.</li>
+                    <!-- <li class="mb-1">Used <span class="font-semibold">SQLite</span> as local database with <span
+                            class="font-semibold">Tauri SQL plugin</span> for reliable interactions.</li> -->
                     <!-- <li class="mb-1">Crafted a <span class="font-semibold">keyboard-centric UI</span> experience using
                         <span class="font-semibold">Radix UI</span> and <span class="font-semibold">Tailwind CSS</span>,
                         optimized for quick navigation and performance.
                     </li> -->
-                    <li class="mb-1">Focused heavily on <span class="font-semibold">performance optimizations</span> and
+                    <!-- <li class="mb-1">Focused heavily on <span class="font-semibold">performance optimizations</span> and
                         <span class="font-semibold">seamless cross-platform compatibility</span> (Windows, macOS,
                         Linux).
-                    </li>
+                    </li> -->
                 </ul>
             </div> <!-- Hono.js Decorator Router -->
             <div class="mb-4">
@@ -220,23 +229,23 @@
             <h2 class="text-blue-400 border-b border-blue-400 text-base md:text-lg font-bold uppercase mb-2">Skills</h2>
             <div class="mb-4">
                 <ul class="list-disc pl-5 text-xs md:text-sm">
-                    <li class="mb-1"><span class="font-semibold">Frontend Development:</span> React.js, Next.js,
-                        Tailwind CSS, Radix UI, HTML5, CSS3, JavaScript, TypeScript</li>
-                    <li class="mb-1"><span class="font-semibold">Backend Development:</span> Node.js, Express.js,
+                    <li class="mb-1"><span class="font-semibold">Frontend Development:</span> TypeScript, React.js,
+                        Next.js,
+                        Tailwind CSS, Radix UI, HTML5, CSS3</li>
+                    <li class="mb-1"><span class="font-semibold">Backend Development:</span> Typescript, Node.js,
+                        Express.js,
                         Nest.js
                         RESTful APIs</li>
-                    <li class="mb-1"><span class="font-semibold">Desktop Application:</span> Rust (Tauri), SQLite,
-                        SeaORM</li>
                     <li class="mb-1"><span class="font-semibold">Database Management:</span> PostgreSQL, MongoDB, MySQL,
                         SQLite</li>
                     <li class="mb-1"><span class="font-semibold">Authentication & Security:</span> JWT, OAuth, OTP
                         Verification, Role-Based Access Control (RBAC)</li>
                     <li class="mb-1"><span class="font-semibold">Server & DevOps:</span> Linux Server Management, Nginx,
                         Deployment (EC2, VPS, S3), PM2, Docker basics</li>
-                    <li class="mb-1"><span class="font-semibold">Software Architecture:</span> Microservices, Background
-                        Jobs, Queue Processing</li>
-                    <li class="mb-1"><span class="font-semibold">Programming Languages:</span> TypeScript, JavaScript,
-                        Rust, PHP, SQL, Bash</li>
+                    <!-- <li class="mb-1"><span class="font-semibold">Software Architecture:</span> Microservices, Background
+                        Jobs, Queue Processing</li> -->
+                    <!-- <li class="mb-1"><span class="font-semibold">Programming Languages:</span> TypeScript, JavaScript,
+                        Rust, PHP, SQL, Bash</li> -->
                     <li class="mb-1"><span class="font-semibold">Other Tools & Technologies:</span> Git, GitHub Actions
                         (CI/CD).
                 </ul>
