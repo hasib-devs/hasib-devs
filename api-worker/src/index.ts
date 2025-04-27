@@ -1,6 +1,10 @@
 import { Hono } from 'hono';
 
-const app = new Hono();
+type Bindings = {
+  SLACK_WEBHOOK_URL: string;
+};
+
+const app = new Hono<{ Bindings: Bindings; }>();
 // Enable CORS
 app.use('/api/*', async (c, next) => {
   c.res.headers.set('Access-Control-Allow-Origin', '*');
@@ -35,9 +39,10 @@ app.post('/api/contact', async (c) => {
   }
 
   // POST Slack webhook here
+  const webhookURL = c.env.SLACK_WEBHOOK_URL;
   try {
     // Post to Slack
-    const slackResponse = await fetch("https://hooks.slack.com/services/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", {
+    const slackResponse = await fetch(webhookURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,38 +50,38 @@ app.post('/api/contact', async (c) => {
       body: JSON.stringify({
         text: `New contact form submission:\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`,
         // For richer formatting use blocks:
-        blocks: [
-          {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: `📬 *New Contact Form Submission*`
-            }
-          },
-          {
-            type: "divider"
-          },
-          {
-            type: "section",
-            fields: [
-              {
-                type: "mrkdwn",
-                text: `*Name:*\n${name}`
-              },
-              {
-                type: "mrkdwn",
-                text: `*Email:*\n${email}`
-              }
-            ]
-          },
-          {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: `*Message:*\n${message}`
-            }
-          }
-        ]
+        // blocks: [
+        //   {
+        //     type: "section",
+        //     text: {
+        //       type: "mrkdwn",
+        //       text: `📬 *New Contact Form Submission*`
+        //     }
+        //   },
+        //   {
+        //     type: "divider"
+        //   },
+        //   {
+        //     type: "section",
+        //     fields: [
+        //       {
+        //         type: "mrkdwn",
+        //         text: `*Name:*\n${name}`
+        //       },
+        //       {
+        //         type: "mrkdwn",
+        //         text: `*Email:*\n${email}`
+        //       }
+        //     ]
+        //   },
+        //   {
+        //     type: "section",
+        //     text: {
+        //       type: "mrkdwn",
+        //       text: `*Message:*\n${message}`
+        //     }
+        //   }
+        // ]
       }),
     });
 
