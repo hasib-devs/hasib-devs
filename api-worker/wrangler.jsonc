@@ -6,9 +6,11 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  // "vars": {
-  //   "SLACK_WEBHOOK_URL": "",
-  // },
+  "vars": {
+    "SLACK_WEBHOOK_URL": "",
+    "BREVO_API_KEY": "",
+    "BREVO_API_URL": "",
+  },
   // "kv_namespaces": [
   //   {
   //     "binding": "MY_KV_NAMESPACE",
