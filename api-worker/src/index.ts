@@ -46,71 +46,72 @@ app.post('/api/contact', async (c) => {
   const brevoURL = c.env.BREVO_API_URL;
   const brevoApiKey = c.env.BREVO_API_KEY;
 
-  Promise.all([
-    fetch(webhookURL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        text: `New contact form submission:\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`,
-        blocks: [
-          {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: `📬 *New Contact Form Submission*`
-            }
-          },
-          {
-            type: "divider"
-          },
-          {
-            type: "section",
-            fields: [
-              {
-                type: "mrkdwn",
-                text: `*Name:*\n${name}`
-              },
-              {
-                type: "mrkdwn",
-                text: `*Email:*\n${email}`
-              },
-              {
-                type: "mrkdwn",
-                text: `*Subject:*\n${subject}`
-              }
-            ]
-          },
-          {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: `*Message:*\n${message}`
-            }
-          }
-        ]
-      }),
-    }),
-    fetch(brevoURL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'api-key': brevoApiKey
-      },
-      body: JSON.stringify({
-        sender: {
-          name: "Hasibur Rahman",
-          email: "hello@hasib.dev"
+  try {
+    await Promise.allSettled([
+      fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        to: [
-          {
-            email: email,
-            name: name
-          }
-        ],
-        subject: "Thanks for Reaching Out",
-        htmlContent: `
+        body: JSON.stringify({
+          text: `New contact form submission:\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`,
+          blocks: [
+            {
+              type: "section",
+              text: {
+                type: "mrkdwn",
+                text: `📬 *New Contact Form Submission*`
+              }
+            },
+            {
+              type: "divider"
+            },
+            {
+              type: "section",
+              fields: [
+                {
+                  type: "mrkdwn",
+                  text: `*Name:*\n${name}`
+                },
+                {
+                  type: "mrkdwn",
+                  text: `*Email:*\n${email}`
+                },
+                {
+                  type: "mrkdwn",
+                  text: `*Subject:*\n${subject}`
+                }
+              ]
+            },
+            {
+              type: "section",
+              text: {
+                type: "mrkdwn",
+                text: `*Message:*\n${message}`
+              }
+            }
+          ]
+        }),
+      }),
+      fetch(brevoURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'api-key': brevoApiKey
+        },
+        body: JSON.stringify({
+          sender: {
+            name: "Hasibur Rahman",
+            email: "hello@hasib.dev"
+          },
+          to: [
+            {
+              email: email,
+              name: name
+            }
+          ],
+          subject: "Thanks for Reaching Out",
+          htmlContent: `
         <!DOCTYPE html>
           <html lang="en">
             <head>
@@ -208,9 +209,14 @@ app.post('/api/contact', async (c) => {
             </body>
           </html>
         `
+        })
       })
-    })
-  ]);
+    ]);
+  } catch (error) {
+    return c.json({
+      message: "Something went wrong"
+    });
+  }
 
   return c.json({
     message: "Contact form submitted successfully"
