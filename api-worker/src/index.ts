@@ -11,7 +11,7 @@ const app = new Hono<{ Bindings: Bindings; }>();
 // Enable CORS
 app.use('/api/*', cors({
   origin: (origin, c) => {
-    return origin.endsWith('.hasib.dev')
+    return origin.endsWith('hasib.dev')
       ? origin
       : 'http://localhost:5173';
   },
