@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (progress >= 100) {
                 clearInterval(interval);
-                setTimeout(hideLoadingOverlay, 500);
+                setTimeout(hideLoadingOverlay, 100);
             }
-        }, 100);
+        }, 50);
     }
 
     // Update the progress bar and text
