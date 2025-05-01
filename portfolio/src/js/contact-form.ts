@@ -34,9 +34,9 @@ formEl.addEventListener("submit", async function (e) {
         const response = await fetch(url, {
             method: "POST",
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Content-Type": "application/json"
             },
-            body: formData
+            body: JSON.stringify(Object.fromEntries(formData))
         });
 
         if (!response.ok) {

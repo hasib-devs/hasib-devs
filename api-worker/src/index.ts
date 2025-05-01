@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import { cors } from 'hono/cors';
 
 type Bindings = {
   SLACK_WEBHOOK_URL: string;
@@ -8,12 +9,15 @@ type Bindings = {
 
 const app = new Hono<{ Bindings: Bindings; }>();
 // Enable CORS
-app.use('/api/*', async (c, next) => {
-  c.res.headers.set('Access-Control-Allow-Origin', '*');
-  c.res.headers.set('Access-Control-Allow-Methods', 'GET, POST');
-  c.res.headers.set('Access-Control-Allow-Headers', 'Content-Type');
-  await next();
-});
+app.use('/api/*', cors({
+  origin: (origin, c) => {
+    return origin.endsWith('.hasib.dev')
+      ? origin
+      : 'http://localhost:5173';
+  },
+  allowMethods: ['POST', 'GET', 'OPTIONS'],
+}));
+
 
 app.get("/", async function (c) {
   return c.json({
@@ -21,23 +25,35 @@ app.get("/", async function (c) {
   });
 });
 
+type ContactFormBody = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 app.post('/api/contact', async (c) => {
-  const formData = await c.req.formData();
-  const { name, email, message } = Object.fromEntries(formData) as Record<string, string>;
+  c.header('Accept', 'application/json');
+  const { name, email, message } = await c.req.json<ContactFormBody>();
+
+  const errors: Record<string, string> = {};
 
   // Validation
-  if (!name || !email || !message) {
-    return c.json({ message: 'Missing required fields', errors: { name, email, message } }, 422);
+  if (!name) errors.name = "Name is required";
+  if (!email) errors.email = "Email is required";
+  if (!message) errors.message = "Message is required";
+
+  if (Object.keys(errors).length) {
+    return c.json({ message: 'Unprocessable Entity', errors }, 422);
   }
 
   // Validate email format
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return c.json({ message: 'Invalid email format', errors: { email } }, 422);
+    return c.json({ errors: { email: 'Invalid email format' } }, 422);
   }
 
   // Validate message length
   if (message.length > 1000) {
-    return c.json({ message: 'Message too long', errors: { message } }, 422);
+    return c.json({ errors: { message: 'Message too long' } }, 422);
   }
 
   // POST Slack webhook here
@@ -127,7 +143,7 @@ app.post('/api/contact', async (c) => {
                   background-color: #fff;
                   padding: 24px;
                   border-radius: 10px;
-                  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+                  box-shadow: 0px 0px 15px #efefef;
                 }
                 .logo {
                   text-align: center;
@@ -209,11 +225,21 @@ app.post('/api/contact', async (c) => {
     })
   ]);
 
+  if (res1.status === 'rejected') {
+    return c.json({
+      message: "Fail to send Slack message",
+      error: res1.reason
+    });
+  }
+  if (res2.status === 'rejected') {
+    return c.json({
+      message: "Fail to send Mail",
+      error: res2.reason
+    });
+  }
 
   return c.json({
     message: "Contact form submitted successfully",
-    slackSuccess: res1.status === 'fulfilled',
-    mailSuccess: res2.status === 'fulfilled'
   });
 });
 
