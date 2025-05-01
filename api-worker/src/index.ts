@@ -240,7 +240,7 @@ app.post('/api/contact', async (c) => {
             name: "Hasibur Rahman"
           }
         ],
-        subject: "You have received a new message via your portfolio contact form.",
+        subject: `A new message from ${name}`,
         htmlContent: `
         <!DOCTYPE html>
           <html lang="en">
@@ -278,10 +278,17 @@ app.post('/api/contact', async (c) => {
       error: res1.reason
     });
   }
+
   if (res2.status === 'rejected') {
     return c.json({
       message: "Fail to send Mail",
       error: res2.reason
+    });
+  }
+  if (res3.status === 'rejected') {
+    return c.json({
+      message: "Fail to send self Mail",
+      error: res3.reason
     });
   }
 
