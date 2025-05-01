@@ -231,8 +231,8 @@ app.post('/api/contact', async (c) => {
       },
       body: JSON.stringify({
         sender: {
-          name,
-          email
+          name: "Admin",
+          email: "admin@hasib.dev"
         },
         to: [
           {
