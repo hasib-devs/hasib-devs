@@ -23,11 +23,11 @@ app.get("/", async function (c) {
 
 app.post('/api/contact', async (c) => {
   const formData = await c.req.formData();
-  const { name, email, message, subject } = Object.fromEntries(formData) as Record<string, string>;
+  const { name, email, message } = Object.fromEntries(formData) as Record<string, string>;
 
   // Validation
   if (!name || !email || !message) {
-    return c.json({ message: 'Missing required fields', errors: { name, email, message, subject } }, 422);
+    return c.json({ message: 'Missing required fields', errors: { name, email, message } }, 422);
   }
 
   // Validate email format
@@ -76,10 +76,6 @@ app.post('/api/contact', async (c) => {
               {
                 type: "mrkdwn",
                 text: `*Email:*\n${email}`
-              },
-              {
-                type: "mrkdwn",
-                text: `*Subject:*\n${subject}`
               }
             ]
           },
