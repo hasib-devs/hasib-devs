@@ -63,7 +63,7 @@ app.post('/api/contact', async (c) => {
   const brevoApiKey = c.env.BREVO_API_KEY;
 
 
-  const [res1, res2] = await Promise.allSettled([
+  const [res1, res2, res3] = await Promise.allSettled([
     fetch(webhookURL, {
       method: 'POST',
       headers: {
@@ -222,7 +222,54 @@ app.post('/api/contact', async (c) => {
           </html>
         `
       })
-    })
+    }),
+    fetch(brevoURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': brevoApiKey
+      },
+      body: JSON.stringify({
+        sender: {
+          name,
+          email
+        },
+        to: [
+          {
+            email: "hello@hasib.dev",
+            name: "Hasibur Rahman"
+          }
+        ],
+        subject: "You have received a new message via your portfolio contact form.",
+        htmlContent: `
+        <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <title>New Message</title>
+              <style>
+                 body {
+                  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+                    'Open Sans', 'Helvetica Neue', sans-serif;
+                  background-color: #f4f4f7;
+                  padding: 20px;
+                  margin: 0;
+                }
+              </style>
+            </head>
+            <body>
+              <p><strong>You have received a new message via your portfolio contact form.</strong></p>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Message:</strong></p>
+              <p>${message}</p>
+              <hr />
+              <p>This message was sent from <a href="https://hasib.dev">hasib.dev</a></p>
+            </body>
+        </html>
+        `
+      })
+    }),
   ]);
 
   if (res1.status === 'rejected') {
