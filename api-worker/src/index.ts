@@ -26,7 +26,7 @@ app.post('/api/contact', async (c) => {
   const { name, email, message, subject } = Object.fromEntries(formData) as Record<string, string>;
 
   // Validation
-  if (!name || !email || !message || !subject) {
+  if (!name || !email || !message) {
     return c.json({ error: 'Missing required fields' }, 422);
   }
 
@@ -75,6 +75,10 @@ app.post('/api/contact', async (c) => {
               {
                 type: "mrkdwn",
                 text: `*Email:*\n${email}`
+              },
+              {
+                type: "mrkdwn",
+                text: `*Subject:*\n${subject}`
               }
             ]
           },
