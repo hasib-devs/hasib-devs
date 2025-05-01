@@ -27,17 +27,17 @@ app.post('/api/contact', async (c) => {
 
   // Validation
   if (!name || !email || !message) {
-    return c.json({ error: 'Missing required fields' }, 422);
+    return c.json({ message: 'Missing required fields', errors: { name, email, message, subject } }, 422);
   }
 
   // Validate email format
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return c.json({ error: 'Invalid email format' }, 422);
+    return c.json({ message: 'Invalid email format', errors: { email } }, 422);
   }
 
   // Validate message length
   if (message.length > 1000) {
-    return c.json({ error: 'Message too long' }, 422);
+    return c.json({ message: 'Message too long', errors: { message } }, 422);
   }
 
   // POST Slack webhook here
@@ -46,72 +46,72 @@ app.post('/api/contact', async (c) => {
   const brevoURL = c.env.BREVO_API_URL;
   const brevoApiKey = c.env.BREVO_API_KEY;
 
-  try {
-    await Promise.allSettled([
-      fetch(webhookURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text: `New contact form submission:\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`,
-          blocks: [
-            {
-              type: "section",
-              text: {
-                type: "mrkdwn",
-                text: `📬 *New Contact Form Submission*`
-              }
-            },
-            {
-              type: "divider"
-            },
-            {
-              type: "section",
-              fields: [
-                {
-                  type: "mrkdwn",
-                  text: `*Name:*\n${name}`
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*Email:*\n${email}`
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*Subject:*\n${subject}`
-                }
-              ]
-            },
-            {
-              type: "section",
-              text: {
-                type: "mrkdwn",
-                text: `*Message:*\n${message}`
-              }
+
+  const [res1, res2] = await Promise.allSettled([
+    fetch(webhookURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        text: `New contact form submission:\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`,
+        blocks: [
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: `📬 *New Contact Form Submission*`
             }
-          ]
-        }),
-      }),
-      fetch(brevoURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'api-key': brevoApiKey
-        },
-        body: JSON.stringify({
-          sender: {
-            name: "Hasibur Rahman",
-            email: "hello@hasib.dev"
           },
-          to: [
-            {
-              email: email,
-              name: name
+          {
+            type: "divider"
+          },
+          {
+            type: "section",
+            fields: [
+              {
+                type: "mrkdwn",
+                text: `*Name:*\n${name}`
+              },
+              {
+                type: "mrkdwn",
+                text: `*Email:*\n${email}`
+              },
+              {
+                type: "mrkdwn",
+                text: `*Subject:*\n${subject}`
+              }
+            ]
+          },
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: `*Message:*\n${message}`
             }
-          ],
-          subject: "Thanks for Reaching Out",
-          htmlContent: `
+          }
+        ]
+      }),
+    }),
+    fetch(brevoURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'api-key': brevoApiKey
+      },
+      body: JSON.stringify({
+        sender: {
+          name: "Hasibur Rahman",
+          email: "hello@hasib.dev"
+        },
+        to: [
+          {
+            email: email,
+            name: name
+          }
+        ],
+        subject: "Thanks for Reaching Out",
+        htmlContent: `
         <!DOCTYPE html>
           <html lang="en">
             <head>
@@ -209,17 +209,15 @@ app.post('/api/contact', async (c) => {
             </body>
           </html>
         `
-        })
       })
-    ]);
-  } catch (error) {
-    return c.json({
-      message: "Something went wrong"
-    });
-  }
+    })
+  ]);
+
 
   return c.json({
-    message: "Contact form submitted successfully"
+    message: "Contact form submitted successfully",
+    slackSuccess: res1.status === 'fulfilled',
+    mailSuccess: res2.status === 'fulfilled'
   });
 });
 
