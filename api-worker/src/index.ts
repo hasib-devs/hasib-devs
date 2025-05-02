@@ -13,7 +13,7 @@ app.use('/api/*', cors({
   origin: (origin, c) => {
     return origin.endsWith('hasib.dev')
       ? origin
-      : 'http://localhost:5173';
+      : 'http://localhost';
   },
   allowMethods: ['POST', 'GET', 'OPTIONS'],
 }));
